@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuctionApp.Data.Context
+namespace AuctionApp.Data.Data.Context
 {
     public class AuctionAppDb : IdentityDbContext<AppUser>
     {
@@ -17,6 +17,6 @@ namespace AuctionApp.Data.Context
         }
 
         public DbSet<AppUser> AppUsers { get; set; }
-        public DbSet< Vehicle> Vehicles {  get; set; }    
+        public DbSet<Vehicle> Vehicles { get; set; }
     }
 }

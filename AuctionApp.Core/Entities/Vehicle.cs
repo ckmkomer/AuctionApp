@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AuctionApp.Core.Entities.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,11 @@ namespace AuctionApp.Core.Entities
 
         public bool IsActive { get; set; }
         public string Image { get; set; }
+
+        public string SellerId { get; set; }
+        public AppUser AppUser { get; set; }
+
+        public ICollection<Bid> Bids { get;}
 
 
     }
