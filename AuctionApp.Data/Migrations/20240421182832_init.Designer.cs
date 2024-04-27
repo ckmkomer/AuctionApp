@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AuctionApp.Data.Migrations
 {
-    [DbContext(typeof(AuctionAppDb))]
+    [DbContext(typeof(AuctionAppDbContext))]
     [Migration("20240421182832_init")]
     partial class init
     {

@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace AuctionApp.Data.Data.Context
 {
-    public class AuctionAppDb : IdentityDbContext<AppUser>
+    public class AuctionAppDbContext : IdentityDbContext<AppUser>
     {
-        public AuctionAppDb(DbContextOptions options) : base(options)
+        public AuctionAppDbContext(DbContextOptions options) : base(options)
         {
         }
 

@@ -10,9 +10,9 @@ namespace AuctionApp.Data.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
 	{
-		private readonly AuctionAppDb _auctionApp;
+		private readonly AuctionAppDbContext _auctionApp;
 
-		public UnitOfWork(AuctionAppDb auctionApp)
+		public UnitOfWork(AuctionAppDbContext auctionApp)
 		{
 			_auctionApp = auctionApp;
 		}

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AuctionApp.Data.Migrations
 {
-    [DbContext(typeof(AuctionAppDb))]
+    [DbContext(typeof(AuctionAppDbContext))]
     [Migration("20240421185631_CraeteTable")]
     partial class CraeteTable
     {

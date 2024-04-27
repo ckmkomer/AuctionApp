@@ -16,7 +16,7 @@ namespace AuctionApp.Core.Repositories
 
 		IQueryable<T> Where(Expression<Func<T, bool>> expression);
 
-		Task<bool> Any(Expression<Func<T, bool>> expression);
+		Task<bool> AnyAsync(Expression<Func<T, bool>> expression);
 		Task AddAsync(T entity);
 
 		void Add(T entity);
