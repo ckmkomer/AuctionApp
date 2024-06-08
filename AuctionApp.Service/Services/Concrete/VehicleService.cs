@@ -19,13 +19,18 @@ namespace AuctionApp.Service.Services.Concrete
 	public class VehicleService : GenericService<Vehicle, VehicleDto>, IVehicleService
 	{
 		private readonly IVehicleRepository _vehicleRepository;
+
+
+
 		public VehicleService(IGenericRepository<Vehicle> repository, IUnitOfWork unitOfWork, IMapper mapper, IVehicleRepository vehicleRepository) : base(repository, unitOfWork, mapper)
 		{
 			_vehicleRepository = vehicleRepository;
 		}
 
+
 		public async Task<CustomResponseDto<VehicleDto>> AddAsync(CreateVehicleDto createVehicleDto)
 		{
+			
 		    var newEntity = _mapper.Map<Vehicle>(createVehicleDto);
 			await _vehicleRepository.AddAsync(newEntity);
 			await _unitOfWork.CommitAsync();

@@ -8,15 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuctionApp.Data.Data.Context
+namespace AuctionApp.Data.Context
 {
     public class AuctionAppDbContext : IdentityDbContext<AppUser>
     {
-        public AuctionAppDbContext(DbContextOptions options) : base(options)
+		
+		public AuctionAppDbContext(DbContextOptions options) : base(options)
         {
         }
 
-        public DbSet<AppUser> AppUsers { get; set; }
+		
+
+		
         public DbSet<Vehicle> Vehicles { get; set; }
+       
     }
 }

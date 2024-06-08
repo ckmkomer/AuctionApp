@@ -1,6 +1,6 @@
 ﻿using AuctionApp.Core.Entities;
 using AuctionApp.Core.Repositories;
-using AuctionApp.Data.Data.Context;
+using AuctionApp.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AuctionApp.Data.Repositories
 {
-	public class GenericRepository<T> :IGenericRepository<T> where T : BaseEntity
+    public class GenericRepository<T> :IGenericRepository<T> where T : BaseEntity
 	{
 		private readonly AuctionAppDbContext _appDbContext;
 		private readonly DbSet<T> _dbSet;

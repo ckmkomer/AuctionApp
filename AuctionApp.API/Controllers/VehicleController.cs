@@ -1,4 +1,5 @@
 ﻿using AuctionApp.Core.Dtos.VehicleDtos;
+using AuctionApp.Core.Entities;
 using AuctionApp.Service.Services.Abstract;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

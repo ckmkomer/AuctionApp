@@ -1,5 +1,5 @@
 ﻿using AuctionApp.Core.UnitOfWork;
-using AuctionApp.Data.Data.Context;
+using AuctionApp.Data.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;

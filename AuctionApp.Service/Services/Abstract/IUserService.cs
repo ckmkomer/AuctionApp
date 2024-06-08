@@ -1,6 +1,9 @@
 ﻿using AuctionApp.Core.Dtos;
+
+using AuctionApp.Core.Dtos.AppUserDtos;
 using AuctionApp.Core.Dtos.VehicleDtos;
 using AuctionApp.Core.Entities;
+using AuctionApp.Core.Entities.Identity;
 using AuctionApp.Core.Services;
 using System;
 using System.Collections.Generic;
@@ -10,15 +13,10 @@ using System.Threading.Tasks;
 
 namespace AuctionApp.Service.Services.Abstract
 {
-	public interface IVehicleService :IGenericService<Vehicle,VehicleDto>
+	public interface IUserService
 	{
-		
-		Task<CustomResponseDto<NoContentDto>> UpdateAsync(UpdateVehicleDto updateVehicleDto);
-		Task<CustomResponseDto<VehicleDto>> AddAsync(CreateVehicleDto createVehicleDto);
-	
-
-
-
+		Task<CustomResponseDto<NoContentDto>> Register(RegisterRequestDto registerRequest);
+		Task<CustomResponseDto<NoContentDto>> Login(LoginRequestDto  loginRequest);
 
 	}
 }

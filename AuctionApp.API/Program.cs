@@ -1,12 +1,14 @@
-using AuctionApp.Core.Services;
-using AuctionApp.Core.UnitOfWork;
-using AuctionApp.Data.Data.Context;
+using AuctionApp.API.Modules;
+using AuctionApp.Core.Repositories;
+using AuctionApp.Data.Context;
+using AuctionApp.Data.Repositories;
 using AuctionApp.Data.Repositories.Abstract;
 using AuctionApp.Data.Repositories.Concrete;
-using AuctionApp.Data.UnitOfWork;
-using AuctionApp.Service.Services;
+using AuctionApp.Service.Mapping;
 using AuctionApp.Service.Services.Abstract;
 using AuctionApp.Service.Services.Concrete;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,13 +18,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddDbContext<AuctionAppDbContext>(options =>  options.UseSqlServer(builder.Configuration.GetConnectionString("Db")));
+var connectionString = builder.Configuration.GetConnectionString("DbCon");
+builder.Services.AddDbContext<AuctionAppDbContext>(x => x.UseSqlServer(connectionString));
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+
+builder.Services.AddScoped(typeof(NotFoundFilter<>));
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IGenericService<>,GenericService<>>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<IVehicleRepository ,VehicleRepository>();
-builder.Services.AddScoped<IVehicleService,VehicleService >();
+builder.Host.UseServiceProviderFactory
+    (new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepoServiceModule()));
+
+
 
 var app = builder.Build();
 

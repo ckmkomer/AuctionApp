@@ -17,6 +17,7 @@ namespace AuctionApp.Service.Mapping
 			CreateMap<Vehicle, UpdateVehicleDto>().ReverseMap();
 			CreateMap<Vehicle, ResultVehicleDto>().ReverseMap();
 			CreateMap<Vehicle, GetByIdVehicleDto>().ReverseMap();
+			CreateMap<Vehicle, VehicleDto>().ReverseMap();
 		}
 	}
 }
